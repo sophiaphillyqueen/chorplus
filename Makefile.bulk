@@ -1,0 +1,23 @@
+
+
+all_header_files = $(spvr_srcdir)/chorplus-cnf001/maininclude.h $(spvr_srcdir)/lib-chorplus/chorplus.h
+all_header_inclus = "-I$(spvr_srcdir)/lib-chorplus"
+
+
+
+all: $(spvr_linked_files)/chorplus-cnf001
+
+$(spvr_linked_files)/chorplus-cnf001: $(spvr_object_files)/chorplus-cnf001/main.o
+	mkdir -p "$(spvr_linked_files)"
+	$(spvr_cpp_compile) -o "$(spvr_linked_files)/chorplus-cnf001" "$(spvr_object_files)/chorplus-cnf001/main.o"
+
+
+
+$(spvr_object_files)/chorplus-cnf001/main.o: $(all_header_files) $(spvr_srcdir)/chorplus-cnf001/main.cc
+	mkdir -p "$(spvr_object_files)/chorplus-cnf001"
+	$(spvr_cpp_compile) $(all_header_inclus) -o "$(spvr_object_files)/chorplus-cnf001/main.o" -c "$(spvr_srcdir)/chorplus-cnf001/main.cc"
+
+
+
+
+

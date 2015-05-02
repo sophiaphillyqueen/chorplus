@@ -1,0 +1,10 @@
+
+sordirec="$(dirname "${0}")"
+
+sh "${sordirec}/internals.sh" || exit
+
+rm -rf "${sordirec}/asmbl"
+mkdir -p "${sordirec}/asmbl"
+
+
+
